@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Login.logInScene">
+   <children>
+       <HBox prefHeight="10.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+          <children>
+              <MenuBar prefHeight="25.0" prefWidth="601.0" HBox.hgrow="ALWAYS">
+                  <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                          <items>
+                              <MenuItem fx:id="closeButton" mnemonicParsing="false" text="Close" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Settings">
+                          <items>
+                              <MenuItem mnemonicParsing="false" text="Configure" />
+                        <MenuItem fx:id="createUserButton" mnemonicParsing="false" text="Create User" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                          <items>
+                              <MenuItem mnemonicParsing="false" text="About" />
+                          </items>
+                      </Menu>
+                  </menus>
+              </MenuBar>
+          </children>
+       </HBox>
+       <Text id="logInText" layoutX="176.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Log In!" />
+       <HBox layoutX="175.0" layoutY="145.0" prefHeight="77.0" prefWidth="251.0" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="145.0">
+           <children>
+               <VBox prefHeight="210.0" prefWidth="362.0" spacing="25.0">
+                   <children>
+                       <TextField fx:id="userNameTextField" prefHeight="25.0" prefWidth="250.0" promptText="username" />
+                       <PasswordField fx:id="passwordField" prefWidth="250.0" promptText="password" />
+                   </children>
+               </VBox>
+           </children>
+       </HBox>
+       <Button fx:id="logInButton" layoutX="355.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Log In!" />
+      <Label fx:id="wrongLogInText" layoutX="272.0" layoutY="320.0" prefHeight="17.0" prefWidth="82.0" />
+   </children>
+
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+</AnchorPane>
