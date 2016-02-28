@@ -1,9 +1,10 @@
-package planner.Login;
+package planner.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import planner.Login.Main;
 
 /**
  *

@@ -1,4 +1,4 @@
-package planner.Login;
+package planner.Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
