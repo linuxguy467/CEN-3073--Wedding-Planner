@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
-<BorderPane prefHeight="650.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane prefHeight="650.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.createClientScene">
    <center>
-      <TabPane prefHeight="455.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="455.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab closable="false" text="Client Information">
                <content>
                   <Pane prefHeight="490.0" prefWidth="550.0">
                      <children>
-                        <TextField fx:id="G_firstName" layoutX="128.0" layoutY="46.0" onAction="#seeText" prefHeight="25.0" prefWidth="95.0" />
+                        <TextField fx:id="G_firstName" layoutX="128.0" layoutY="46.0" prefHeight="25.0" prefWidth="95.0" />
                         <Label layoutX="48.0" layoutY="50.0" text="Groom Name:" />
                         <TextField fx:id="G_middleName" layoutX="230.0" layoutY="46.0" prefHeight="25.0" prefWidth="39.0" />
                         <TextField fx:id="G_lastName" layoutX="277.0" layoutY="46.0" prefHeight="25.0" prefWidth="94.0" />
@@ -45,35 +42,56 @@
           </Tab>
           <Tab text="Wedding Information">
                <content>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Pane prefHeight="369.0" prefWidth="550.0">
                      <children>
-                        <Button fx:id="Submit" layoutX="249.0" layoutY="457.0" mnemonicParsing="false" onAction="#seeText" text="Submit" />
+                        <Button layoutX="201.0" layoutY="324.0" mnemonicParsing="false" text="Submit" />
                         <Label layoutX="74.0" layoutY="49.0" text="Wedding Date:" />
                         <Label layoutX="49.0" layoutY="83.0" text="Wedding Start Time:" />
-                        <TextField fx:id="weddingStart" layoutX="162.0" layoutY="79.0" onAction="#seeText" prefHeight="25.0" prefWidth="46.0" />
+                        <TextField fx:id="weddingStart" layoutX="162.0" layoutY="79.0" prefHeight="25.0" prefWidth="46.0" />
                         <Label layoutX="217.0" layoutY="83.0" text="Wedding End Time:" />
-                        <TextField fx:id="weddingEnd" layoutX="327.0" layoutY="79.0" onAction="#seeText" prefHeight="25.0" prefWidth="46.0" />
+                        <TextField fx:id="weddingEnd" layoutX="327.0" layoutY="79.0" prefHeight="25.0" prefWidth="46.0" />
                         <Label layoutX="84.0" layoutY="121.0" text="Venue Name:" />
-                        <TextField fx:id="venueName" layoutX="162.0" layoutY="117.0" onAction="#seeText" />
+                        <TextField fx:id="venueName" layoutX="162.0" layoutY="117.0" />
                         <Label layoutX="39.0" layoutY="150.0" text="Venue Contact Name:" />
-                        <TextField fx:id="V_firstName" layoutX="162.0" layoutY="146.0" onAction="#seeText" prefHeight="25.0" prefWidth="93.0" />
-                        <TextField fx:id="V_lastName" layoutX="262.0" layoutY="146.0" onAction="#seeText" prefHeight="25.0" prefWidth="118.0" />
+                        <TextField fx:id="V_firstName" layoutX="162.0" layoutY="146.0" prefHeight="25.0" prefWidth="93.0" />
+                        <TextField fx:id="V_lastName" layoutX="262.0" layoutY="146.0" prefHeight="25.0" prefWidth="118.0" />
                         <Label layoutX="114.0" layoutY="180.0" text="Address:" />
-                        <TextField fx:id="venueAddress_1" layoutX="162.0" layoutY="176.0" onAction="#seeText" />
-                        <TextField fx:id="venueAddress_2" layoutX="162.0" layoutY="208.0" onAction="#seeText" />
+                        <TextField fx:id="venueAddress_1" layoutX="162.0" layoutY="176.0" />
+                        <TextField fx:id="venueAddress_2" layoutX="162.0" layoutY="208.0" />
                         <Label layoutX="125.0" layoutY="245.0" text="City:" />
-                        <TextField fx:id="venueCity" layoutX="161.0" layoutY="241.0" onAction="#seeText" prefHeight="25.0" prefWidth="106.0" />
+                        <TextField fx:id="venueCity" layoutX="161.0" layoutY="241.0" prefHeight="25.0" prefWidth="106.0" />
                         <Label layoutX="275.0" layoutY="245.0" text="State:" />
-                        <TextField fx:id="venueState" layoutX="309.0" layoutY="241.0" onAction="#seeText" prefHeight="25.0" prefWidth="36.0" />
+                        <TextField fx:id="venueState" layoutX="309.0" layoutY="241.0" prefHeight="25.0" prefWidth="36.0" />
                         <Label layoutX="350.0" layoutY="245.0" text="Zip:" />
-                        <TextField fx:id="venueZip" layoutX="373.0" layoutY="241.0" onAction="#seeText" prefHeight="25.0" prefWidth="56.0" />
+                        <TextField fx:id="venueZip" layoutX="373.0" layoutY="241.0" prefHeight="25.0" prefWidth="56.0" />
                         <Label layoutX="68.0" layoutY="282.0" text="Contact Number:" />
-                        <TextField fx:id="venueNumber" layoutX="162.0" layoutY="278.0" onAction="#seeText" />
-                        <TextField fx:id="weddingDate" layoutX="162.0" layoutY="45.0" onAction="#seeText" />
+                        <TextField fx:id="venueNumber" layoutX="162.0" layoutY="278.0" />
+                        <DatePicker fx:id="weddingDate" layoutX="159.0" layoutY="45.0" />
                      </children>
                   </Pane>
                </content></Tab>
         </tabs>
       </TabPane>
    </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="closeButton" mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="backButton" mnemonicParsing="false" text="Back" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
 </BorderPane>

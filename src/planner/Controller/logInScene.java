@@ -12,7 +12,7 @@ import planner.GUI.Main;
  */
 public class logInScene extends Controller
 {
-    public static final String URL_FXML = "log_in.fxml";
+    public static final String URL_FXML = "planner/GUI/log_in.fxml";
 
 
     @FXML private MenuItem closeButton;
@@ -37,13 +37,7 @@ public class logInScene extends Controller
         logInButton.setOnAction(event -> {
             if (userNameTextField.getText().equals("defaultuser") &&
                     passwordField.getText().equals("password")) {
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Loading!");
-                alert.setHeaderText(null);
-                alert.setContentText("Collecting data from database....");
-
-                alert.showAndWait();
+                Main.getNavigation().loadAndShow(createBaseScene.URL_FXML);
             } else {
                 wrongLogInText.setFont(Font.font(null, FontWeight.BOLD, 12));
                 wrongLogInText.setText("Invalid Login");
@@ -59,7 +53,13 @@ public class logInScene extends Controller
         closeButton.setOnAction(event ->
                 System.exit(0));
 
-        createUserButton.setOnAction(event ->
-                Main.getNavigation().loadAndShow(createUserScene.URL_FXML));
+        createUserButton.setOnAction(event -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Not Added Yet!");
+            alert.setHeaderText(null);
+            alert.setContentText("Stay Tuned for the final product!");
+
+            alert.showAndWait();
+        });
     }
 }

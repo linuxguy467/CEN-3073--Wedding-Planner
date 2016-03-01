@@ -3,6 +3,7 @@ package planner.GUI;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import planner.Controller.Navigation;
+import planner.Controller.logInScene;
 
 public class Main extends Application {
 
