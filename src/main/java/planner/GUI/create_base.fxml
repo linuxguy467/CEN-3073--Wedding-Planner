@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.createBaseScene">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="closeButton" mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="logOutButton" mnemonicParsing="false" text="Logout" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="addNewClientButton" mnemonicParsing="false" text="Add New Client" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <TextArea disable="true" prefHeight="128.0" prefWidth="200.0" promptText="SQL Field (Does nothing right now)" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Groom">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Last Name" />
+                  <TableColumn prefWidth="75.0" text="Middle Name" />
+                  <TableColumn prefWidth="75.0" text="First Name" />
+               </columns>
+            </TableColumn>
+          <TableColumn prefWidth="75.0" text="Bride">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Last Name" />
+                  <TableColumn prefWidth="75.0" text="Middle Name" />
+                  <TableColumn prefWidth="75.0" text="First Name" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Address">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Primary " />
+                  <TableColumn prefWidth="75.0" text="Secondary" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="City" />
+            <TableColumn prefWidth="75.0" text="State" />
+            <TableColumn prefWidth="75.0" text="Zip" />
+            <TableColumn prefWidth="75.0" text="Phone Number">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Main" />
+                  <TableColumn prefWidth="75.0" text="Alternate" />
+               </columns></TableColumn>
+            <TableColumn prefWidth="75.0" text="Wedding Date" />
+            <TableColumn prefWidth="75.0" text="Start Time" />
+            <TableColumn prefWidth="75.0" text="End Time" />
+        </columns>
+      </TableView>
+   </center>
+
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+</BorderPane>
