@@ -46,7 +46,7 @@
             <Label layoutX="26.0" layoutY="155.0" text="Wedding Date:" />
             <DatePicker fx:id="weddingDate" layoutX="27.0" layoutY="172.0" />
             <Label layoutX="26.0" layoutY="201.0" text=" Ceremony Name:" />
-            <TextField fx:id="Ceremony" layoutX="29.0" layoutY="218.0" />
+            <TextField layoutX="29.0" layoutY="218.0" />
             <Label layoutX="193.0" layoutY="201.0" text="Contact Name:" />
             <TextField fx:id="Cfirst" layoutX="185.0" layoutY="218.0" prefHeight="25.0" prefWidth="124.0" />
             <TextField fx:id="Clast" layoutX="314.0" layoutY="218.0" prefHeight="25.0" prefWidth="124.0" />
@@ -70,19 +70,19 @@
             <Label layoutX="270.0" layoutY="319.0" text="Contact Number:" />
             <TextField fx:id="CCnumber" layoutX="267.0" layoutY="338.0" promptText="(000) 000-0000" />
             <Label layoutX="219.0" layoutY="176.0" text="Reception Same Location?" />
-            <CheckBox fx:id="yes" layoutX="364.0" layoutY="176.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox layoutX="364.0" layoutY="176.0" mnemonicParsing="false" text="Yes" />
             <Label layoutX="32.0" layoutY="377.0" text=" Reception Name:" />
-            <TextField fx:id="Reception" layoutX="32.0" layoutY="394.0" />
+            <TextField layoutX="32.0" layoutY="394.0" />
             <Label layoutX="189.0" layoutY="377.0" text="Contact Name:" />
             <TextField fx:id="Rfirst" layoutX="186.0" layoutY="394.0" prefHeight="25.0" prefWidth="124.0" />
             <Label layoutX="189.0" layoutY="419.0" text="First:" />
             <TextField fx:id="Rlast" layoutX="314.0" layoutY="394.0" prefHeight="25.0" prefWidth="124.0" />
             <Label layoutX="320.0" layoutY="419.0" text="Last:" />
             <Label layoutX="455.0" layoutY="377.0" text="  Reception Time:" />
-            <TextField fx:id="Rstart" layoutX="463.0" layoutY="394.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField fx:id="Rstart" layoutX="462.0" layoutY="394.0" prefHeight="25.0" prefWidth="37.0" />
             <Label layoutX="502.0" layoutY="398.0" prefHeight="17.0" prefWidth="16.0" text="To" />
             <TextField fx:id="Rend" layoutX="519.0" layoutY="394.0" prefHeight="25.0" prefWidth="39.0" />
-            <Label layoutX="467.0" layoutY="419.0" text="Start:" />
+            <Label layoutX="467.0" layoutY="420.0" text="Start:" />
             <Label layoutX="519.0" layoutY="419.0" text="End:" />
             <Label layoutX="28.0" layoutY="428.0" text="  Address:" />
             <TextField fx:id="Raddress1" layoutX="32.0" layoutY="445.0" />
@@ -95,6 +95,7 @@
             <TextField fx:id="Rzip" layoutX="191.0" layoutY="514.0" prefHeight="0.0" prefWidth="56.0" />
             <Label layoutX="264.0" layoutY="497.0" text="Contact Number:" />
             <TextField fx:id="RCnumber" layoutX="258.0" layoutY="514.0" promptText="(000) 000-0000" />
+                        <Button fx:id="Back" layoutX="28.0" layoutY="611.0" mnemonicParsing="false" onAction="#goHome" text="Back" />
           
                      </children>
                   </Pane>
@@ -104,7 +105,7 @@
                <content>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="Submit" layoutX="595.0" layoutY="618.0" mnemonicParsing="false" onAction="#seeText" text="Submit" />
+                        <Button layoutX="594.0" layoutY="618.0" mnemonicParsing="false" onAction="#goHome" text="Submit" />
                         <ColorPicker fx:id="color1" layoutX="56.0" layoutY="79.0" />
             <ColorPicker fx:id="color2" layoutX="188.0" layoutY="79.0" />
             <Label layoutX="56.0" layoutY="56.0" text="Wedding Colors:" />
@@ -140,9 +141,9 @@
             <TextField fx:id="NumberGtable" layoutX="501.0" layoutY="303.0" prefHeight="25.0" prefWidth="56.0" />
             <Label layoutX="53.0" layoutY="342.0" text="Select Wedding Package:" />
             <Label layoutX="51.0" layoutY="369.0" text="Names of Wedding Party:" />
-            <TableView fx:id="Party" layoutX="52.0" layoutY="386.0" prefHeight="123.0" prefWidth="415.0" tableMenuButtonVisible="true">
+            <TableView fx:id="table" layoutX="52.0" layoutY="386.0" onSort="#onDeleteItem" prefHeight="123.0" prefWidth="415.0" tableMenuButtonVisible="true">
               <columns>
-                <TableColumn fx:id="Title" prefWidth="113.0" text="Title:" />
+                <TableColumn fx:id="Titlename" prefWidth="113.0" text="Title:" />
                 <TableColumn fx:id="firstname" prefWidth="145.0" text="First Name:" />
                   <TableColumn fx:id="lastname" prefWidth="155.0" text="Last Name:" />
               </columns>
@@ -150,11 +151,11 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
             </TableView>
-            <Button layoutX="467.0" layoutY="507.0" mnemonicParsing="false" onAction="#onAddItem" text="Add" />
+            <Button fx:id="Addname" layoutX="467.0" layoutY="507.0" mnemonicParsing="false" onAction="#onAddItem" text="Add" />
             <Label layoutX="51.0" layoutY="533.0" text="Special Instructions:" />
             <TextArea fx:id="special" layoutX="52.0" layoutY="550.0" prefHeight="80.0" prefWidth="532.0" />
             <ChoiceBox fx:id="weddingPackages" layoutX="191.0" layoutY="338.0" prefHeight="25.0" prefWidth="117.0" />
-            <Button layoutX="314.0" layoutY="338.0" mnemonicParsing="false" text="Add Additional Items" />
+            <Button fx:id="addItem" layoutX="314.0" layoutY="338.0" mnemonicParsing="false" onAction="#showItems" text="Add Additional Items" />
                         <TextField fx:id="ptitle" layoutX="53.0" layoutY="507.0" onAction="#onAddItem" prefHeight="25.0" prefWidth="118.0" promptText="Title" />
                         <TextField fx:id="Pfirst" layoutX="170.0" layoutY="507.0" onAction="#onAddItem" prefHeight="25.0" prefWidth="148.0" promptText="First Name" />
                         <TextField fx:id="Plast" layoutX="318.0" layoutY="507.0" onAction="#onAddItem" prefHeight="25.0" prefWidth="151.0" promptText="Last Name" />

@@ -1,11 +1,7 @@
 package application;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 public class MainController  {
@@ -14,26 +10,32 @@ public class MainController  {
 	
 	@FXML
 	private Button create;
+	
+	// goes to Create Account on button click
 	@FXML
 	private void goCreate() throws IOException
 	{
 		Main.showCreateScene();
 	}
 	
-	
+	// goes to Create Quote on button click
 	@FXML
-	private void goQuote() throws IOException{
-		
+	private void goQuote() throws IOException
+	{
 		Main.showQuote();
 	}
+	
+	// goes to View Packages on button click
 	@FXML
 	private void goPack() throws IOException
 	{
 		Main.showPack();
 	}
+	
+	// goes to Menu on button click
 	@FXML
-	private void goHomenow() throws IOException{
-		
+	private void goHomenow() throws IOException
+	{
 		Main.showMenu();
 	}
 
