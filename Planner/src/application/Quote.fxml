@@ -21,125 +21,24 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="Title" layoutX="162.0" layoutY="49.0" onAction="#seeText" prefHeight="44.0" prefWidth="263.0">
+            <TextField fx:id="Title" layoutX="162.0" layoutY="49.0" prefHeight="44.0" prefWidth="263.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
             <Label layoutX="34.0" layoutY="109.0" text="Name:" />
-            <TextField fx:id="quoteFirstName" layoutX="69.0" layoutY="105.0" onAction="#seeText" prefHeight="25.0" prefWidth="121.0" promptText="First " />
-            <TextField fx:id="quoteLastName" layoutX="192.0" layoutY="105.0" onAction="#seeText" prefHeight="25.0" prefWidth="116.0" promptText="Last" />
+            <TextField fx:id="quoteFirstName" layoutX="69.0" layoutY="105.0" prefHeight="25.0" prefWidth="121.0" promptText="First " />
+            <TextField fx:id="quoteLastName" layoutX="192.0" layoutY="105.0" prefHeight="25.0" prefWidth="116.0" promptText="Last" />
             <Label layoutX="344.0" layoutY="109.0" text="Contact Number:" />
-            <TextField fx:id="quoteContactNum" layoutX="439.0" layoutY="105.0" onAction="#seeText" prefHeight="25.0" prefWidth="104.0" promptText="(000) 000-0000" />
+            <TextField fx:id="quoteContactNum" layoutX="439.0" layoutY="105.0" prefHeight="25.0" prefWidth="104.0" promptText="(000) 000-0000" />
             <Label layoutX="34.0" layoutY="151.0" text="Wedding Date:" />
-            <TextField fx:id="quoteWeddingDate" layoutX="115.0" layoutY="147.0" onAction="#seeText" prefHeight="25.0" prefWidth="86.0" promptText="mm/dd/year" />
+            <TextField fx:id="quoteWeddingDate" layoutX="115.0" layoutY="147.0" prefHeight="25.0" prefWidth="86.0" promptText="mm/dd/year" />
             <Label layoutX="232.0" layoutY="151.0" text="Estimated Number of Guest (Include Wedding Party):" />
-            <TextField fx:id="quoteGuest" layoutX="513.0" layoutY="147.0" onAction="#seeText" prefHeight="25.0" prefWidth="67.0" />
-            <GridPane layoutX="21.0" layoutY="334.0" prefHeight="246.0" prefWidth="665.0">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="198.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="181.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="187.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-                <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <TextField fx:id="quoteSashe" onAction="#showCost" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="quoteCover_Sashe" onAction="#showCost" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="quoteTableRun" onAction="#showCost" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="quoteChairCover" layoutX="142.0" layoutY="43.0" onAction="#showCost" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <CheckBox fx:id="cb1" mnemonicParsing="false" onAction="#showCost" prefHeight="40.0" prefWidth="193.0" text="Chair covers (available in white, polyester or satin) $2.50" wrapText="true" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb2" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" text="Sashes $1.50" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </CheckBox>
-                  <CheckBox fx:id="cb5" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" text="Table linen $10.00" wrapText="true" GridPane.rowIndex="5">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb4" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#showCost" text="Table runners $3.50" wrapText="true" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb3" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#showCost" text="Chair covers and sashes $3.50" wrapText="true" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb8" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" text="Rosette table runners $8.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb7" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#showCost" text="Small vases $3.00" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb6" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#showCost" prefHeight="45.0" prefWidth="162.0" text="24” Tall centerpieces $5.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb9" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" text="Rosette table skirts $20.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb10" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" prefHeight="34.0" prefWidth="164.0" text="Lace table cloths for the bride $25.00" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb11" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#showCost" text="Table skirts $7.50" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb12" layoutX="453.0" layoutY="73.0" mnemonicParsing="false" onAction="#showCost" text="Pillars $10.00" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="cb13" layoutX="453.0" layoutY="125.0" mnemonicParsing="false" onAction="#showCost" text="Glass Vases $12" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="12.0" />
-                     </GridPane.margin>
-                  </CheckBox>
-                  <TextField fx:id="quoteTableLin" layoutX="121.0" layoutY="170.0" onAction="#showCost" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="quoteTallCenter" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <TextField fx:id="quoteSmallVase" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <TextField fx:id="quoteRoseRunner" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <TextField fx:id="quoteRoseSkirt" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                  <TextField fx:id="quoteLaceCloth" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                  <TextField fx:id="quoteTableSkirt" layoutX="343.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                  <TextField fx:id="quotePillars" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                  <TextField fx:id="quoteGlassVase" layoutX="121.0" layoutY="20.0" onAction="#showCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-               </children>
-            </GridPane>
-            <Button fx:id="Package1" layoutX="34.0" layoutY="200.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Carnation Package 1 $1500" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="Package2" layoutX="192.0" layoutY="200.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Chrysanthemum Package 2 $2500" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="Package3" layoutX="354.0" layoutY="200.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Hydrangea Package 3 $3500" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="Package4" layoutX="520.0" layoutY="200.0" mnemonicParsing="false" onAction="#printCost" onKeyPressed="#printCost" prefHeight="110.0" prefWidth="112.0" text="Hydrangea and Roses Package 4 $4500" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="quoteGuest" layoutX="513.0" layoutY="147.0" prefHeight="25.0" prefWidth="67.0" />
+            <Button fx:id="Package1" layoutX="30.0" layoutY="475.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Carnation Package 1 $1500" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="Package2" layoutX="187.0" layoutY="475.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Chrysanthemum Package 2 $2500" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="Package3" layoutX="344.0" layoutY="475.0" mnemonicParsing="false" onAction="#printCost" prefHeight="110.0" prefWidth="112.0" text="Hydrangea Package 3 $3500" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="Package4" layoutX="513.0" layoutY="475.0" mnemonicParsing="false" onAction="#printCost" onKeyPressed="#printCost" prefHeight="110.0" prefWidth="112.0" text="Hydrangea and Roses Package 4 $4500" textAlignment="CENTER" wrapText="true" />
             <Label layoutX="34.0" layoutY="614.0" text="Estimated Cost $:">
                <font>
                   <Font size="20.0" />
@@ -151,8 +50,108 @@
                </font>
             </Label>
             <Button layoutX="34.0" layoutY="651.0" mnemonicParsing="false" onAction="#goHome" text="Cancel" />
-            <Button fx:id="Submit" layoutX="606.0" layoutY="651.0" mnemonicParsing="false" onAction="#seeText" text="Submit" />
-            <Button layoutX="318.0" layoutY="651.0" mnemonicParsing="false" onAction="#showCost" text="Update Cost" />
+            <Button fx:id="Submit" layoutX="606.0" layoutY="651.0" mnemonicParsing="false" onAction="#goHome" text="Submit" />
+            <GridPane layoutX="12.0" layoutY="199.0" prefHeight="246.0" prefWidth="665.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="198.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="181.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="187.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="33.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                  <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="quoteSashe" onAction="#printCost" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="quoteCover_Sashe" onAction="#printCost" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="quoteTableRun" onAction="#printCost" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="quoteChairCover" layoutX="142.0" layoutY="43.0" onAction="#printCost" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="cb1" mnemonicParsing="false" prefHeight="40.0" prefWidth="193.0" text="Chair covers (available in white, polyester or satin) $2.50" wrapText="true" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb2" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Sashes $1.50" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </CheckBox>
+                  <CheckBox fx:id="cb5" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Table linen $10.00" wrapText="true" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb4" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" text="Table runners $3.50" wrapText="true" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb3" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" text="Chair covers and sashes $3.50" wrapText="true" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb8" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Rosette table runners $8.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb7" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" text="Small vases $3.00" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb6" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="162.0" text="24” Tall centerpieces $5.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb9" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Rosette table skirts $20.00" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb10" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" text="Lace table cloths for the bride $25.00" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb11" layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Table skirts $7.50" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb12" layoutX="453.0" layoutY="73.0" mnemonicParsing="false" text="Pillars $10.00" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cb13" layoutX="453.0" layoutY="125.0" mnemonicParsing="false" text="Glass Vases $12" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <TextField fx:id="quoteTableLin" layoutX="121.0" layoutY="170.0" onAction="#printCost" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="quoteTallCenter" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="quoteSmallVase" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="quoteRoseRunner" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <TextField fx:id="quoteRoseSkirt" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <TextField fx:id="quoteLaceCloth" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <TextField fx:id="quoteTableSkirt" layoutX="343.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <TextField fx:id="quotePillars" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <TextField fx:id="quoteGlassVase" layoutX="121.0" layoutY="20.0" onAction="#printCost" prefHeight="25.0" prefWidth="79.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
          </children></AnchorPane>
    </top>
 </BorderPane>
