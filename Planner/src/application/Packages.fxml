@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <center>
+      <AnchorPane prefHeight="698.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="700.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TextArea editable="false" layoutY="27.0" prefHeight="626.0" prefWidth="700.0" text="Carnation Package 1 $1500&#10;Guests: 25-100&#10;Ceremony: artificial bow flowers, tulle the color of your choice, 2 column, 2 pillars, ribbons, Rose petals for the entrance&#10;&#10;Reception Hall: small vases, artificial flowers, chair covers, sashes, table runners, table numbers for all the tables, head table, cake and signing tables&#10;&#10;Chrysanthemum Package 2 $2500&#10;Guest: 101-200&#10;Ceremony: artificial flower arrangements, organza fabrics, 2 column, 4 pillars candles ribbons, Rose petals for the entrance, lights &amp; décor&#10;&#10;Reception Hall: tall centerpieces, artificial flowers, chair covers, sashes, table runners, table numbers for all the tables, head table, cake and signing tables, 10ft backdrop with fabrics, light &amp; décor&#10;&#10;Hydrangea Package 3 $3500&#10;Guest: 200-300&#10;&#10;Ceremony: artificial flower arrangements, sheer voile, 2 column, 4 pillars candles ribbons, Rose petals for the entrance, lights &amp; décor&#10;&#10;Reception Hall: tall centerpieces, artificial flowers, chair covers, sashes, head table, cake and signing tables, 10ft backdrop with fabrics, light &amp; décor, embroidery napkins, embroidery table numbers, regular napkin, tablecloths, overlays or table runners, rosette fabrics for the head table, rosette table runners&#10;&#10;Hydrangea and Roses Package 4 $4500-and up&#10;Guest: 300-500 &#10;Ceremony: Fresh Flowers arrangements, sheer voile, 2 column, 8 pillars, candles ribbons, Rose petals for the entrance, lights &amp; décor, lamps, backdrop for the ceremony, tall glass vase for the aisle&#10;&#10;Reception Hall: tall centerpieces, Fresh flowers, chair covers, sashes, rosette head table, cake and signing tables, 10ft backdrop with fabrics, light &amp; décor, embroidery napkins, embroidery table numbers, regular napkin, tablecloths, overlays or table runners, rosette table runners&#10;&#10;***Package information: All package includes artificial flowers for the bride and bridesmaids, boutonniere for groomsmen and family &#10;***All packages include set up and pick up&#10;***Items include in the packages can be substituted or taken out to suit your need base on your budget.N.T.: additional cost for fresh flowers." wrapText="true">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </TextArea>
+            <Button layoutX="14.0" layoutY="653.0" mnemonicParsing="false" onAction="#goHomenow" text="Back" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
