@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import planner.GUI.Main;
 
 /**
  *
@@ -12,7 +11,7 @@ import planner.GUI.Main;
  */
 public class createUserScene
 {
-    public static final String URL_FXML = "create_user.fxml";
+    public static final String URL_FXML = "planner/GUI/create_user.fxml";
 
     @FXML private DatePicker birthDatePicker;
     @FXML private Label invalidFieldText;

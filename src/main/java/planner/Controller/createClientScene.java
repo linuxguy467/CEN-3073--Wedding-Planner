@@ -1,9 +1,5 @@
 package planner.Controller;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -92,7 +88,7 @@ public class createClientScene {
             try {
                 Main main = new Main();
                 main.closeStage();
-                main.setFXML("create_base.fxml");
+                main.setFXML("planner/GUI/create_base.fxml");
                 main.start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();

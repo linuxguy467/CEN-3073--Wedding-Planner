@@ -21,14 +21,14 @@ public class createBaseScene
     @FXML
     private void initialize()
     {
-        if(!databaseConnection.connected)
+        if(!databaseConnection.isConnected())
         {
             databaseConnection.connectToDatabase();
         }
 
         closeButton.setOnAction(event -> {
             try {
-                databaseConnection.connection.close();
+                databaseConnection.getConnection().close();
                 System.exit(0);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -39,8 +39,9 @@ public class createBaseScene
         logOutButton.setOnAction(event -> {
             try {
                 Main main = new Main();
+                databaseConnection.getConnection().close();
                 main.closeStage();
-                main.setFXML("log_in.fxml");
+                main.setFXML("planner/GUI/log_in.fxml");
                 main.start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -51,7 +52,7 @@ public class createBaseScene
             try {
                 Main main = new Main();
                 main.closeStage();
-                main.setFXML("create_client.fxml");
+                main.setFXML("planner/GUI/create_client.fxml");
                 main.start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();

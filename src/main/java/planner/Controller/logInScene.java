@@ -13,8 +13,6 @@ import planner.GUI.Main;
  */
 public class logInScene
 {
-
-
     @FXML private MenuItem closeButton;
     @FXML private PasswordField passwordField;
     @FXML private Label wrongLogInText;
@@ -40,7 +38,7 @@ public class logInScene
                 try {
                     Main main = new Main();
                     main.closeStage();
-                    main.setFXML("create_base.fxml");
+                    main.setFXML("planner/GUI/create_base.fxml");
                     main.start(new Stage());
                 } catch (Exception e) {
                     e.printStackTrace();
