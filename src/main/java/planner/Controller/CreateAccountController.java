@@ -22,6 +22,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 public class CreateAccountController{
 
@@ -240,7 +241,7 @@ public class CreateAccountController{
 	public void onAddItem(ActionEvent event){
 		
 		//updates the table when data is added
-		databaseConnection.addToDatabase(ptitle.getText(), Pfirst.getText(), Plast.getText());
+		//databaseConnection.addToDatabase(ptitle.getText(), Pfirst.getText(), Plast.getText());
 		Party entry = new Party(ptitle.getText(),Pfirst.getText(),Plast.getText());
 		
 		//add data to table

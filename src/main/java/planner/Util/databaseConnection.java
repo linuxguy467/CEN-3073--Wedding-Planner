@@ -13,6 +13,7 @@ public class databaseConnection
 {
     private static Connection connection;
     public static Boolean taskState;
+    private static String query;
 
 
     /**
@@ -70,17 +71,18 @@ public class databaseConnection
                     "( gfname, gmname, glname, bfname, bmname, blname, " +
                     "wedding_date, contact_num, alt_contact_num, email) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            statement.setString(1, gfname);
-            statement.setString(2, gmname);
-            statement.setString(3, glname);
-            statement.setString(4, bfname);
-            statement.setString(5, bmname);
-            statement.setString(6, blname);
-            statement.setDate(7, wedding_date);
-            statement.setString(8, contact_num);
-            statement.setString(9, alt_contact_num);
-            statement.setString(10, email);
+            statement.setString(2, gfname);
+            statement.setString(3, gmname);
+            statement.setString(4, glname);
+            statement.setString(5, bfname);
+            statement.setString(6, bmname);
+            statement.setString(7, blname);
+            statement.setDate(8, wedding_date);
+            statement.setString(9, contact_num);
+            statement.setString(10, alt_contact_num);
+            statement.setString(11, email);
 
+            query = "SELECT * FROM Client WHERE contact_num= " + "'" + contact_num + "'";
             statement.executeUpdate();
 
             statement.close();
@@ -118,17 +120,17 @@ public class databaseConnection
                     "time_start, time_end, primary_address, secondary_address, " +
                     "contact_number, city, state, zip) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            statement.setString(1, ceremony_name);
-            statement.setString(2, fname);
-            statement.setString(3, lname);
-            statement.setString(4, time_start);
-            statement.setString(5, time_end);
-            statement.setString(6, primary_address);
-            statement.setString(7, secondary_address);
-            statement.setString(8, contact_number);
-            statement.setString(9, city);
-            statement.setString(10, state);
-            statement.setInt(11, zip);
+            statement.setString(2, ceremony_name);
+            statement.setString(3, fname);
+            statement.setString(4, lname);
+            statement.setString(5, time_start);
+            statement.setString(6, time_end);
+            statement.setString(7, primary_address);
+            statement.setString(8, secondary_address);
+            statement.setString(9, contact_number);
+            statement.setString(10, city);
+            statement.setString(11, state);
+            statement.setInt(12, zip);
 
             statement.executeUpdate();
 
