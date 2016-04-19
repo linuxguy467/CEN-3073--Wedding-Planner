@@ -4,11 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
+/**
+ * Main.java
+ * Main method for the Wedding Planner application
+ */
 public class Main extends Application {
 
     private static Stage stage;
@@ -24,15 +25,22 @@ public class Main extends Application {
             System.exit(0);
         });
 
-        if(URL_FXML.equals("planner/GUI/log_in.fxml"))
-        {
-            switchScene(650, 350);
-        }else if(URL_FXML.equals("planner/GUI/create_client.fxml"))
-        {
-            switchScene(550, 500);
-        }else if(URL_FXML.equals("planner/GUI/create_base.fxml"))
-        {
-            switchScene(800, 650);
+        switch (URL_FXML) {
+            case "planner/GUI/log_in.fxml":
+                switchScene(650, 350);
+                break;
+            case "planner/GUI/Main.fxml":
+                switchScene(800, 650);
+                break;
+            case "planner/GUI/Menu.fxml":
+                switchScene(800, 650);
+                break;
+            case "planner/GUI/Packages.fxml":
+                switchScene(800, 750);
+                break;
+            case "planner/GUI/Quote.fxml":
+                switchScene(800, 750);
+                break;
         }
 
         stage.setResizable(false);
