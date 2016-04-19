@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.MainController">
+    <center>
+        <AnchorPane blendMode="SRC_ATOP" prefHeight="700.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="create" layoutX="247.0" layoutY="118.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="182.0" text="Create Account" />
+                <Button fx:id="viewPacks" layoutX="423.0" layoutY="372.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="182.0" text="View Packages" />
+                <Button fx:id="createQuote" layoutX="84.0" layoutY="372.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="182.0" text="Create Quote" />
+                <Text fx:id="welcomeText" layoutX="214.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="248.0" />
+                <Label fx:id="DBstateLabel" layoutX="6.0" layoutY="8.0" prefHeight="27.0" prefWidth="285.0" />
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar HBox.hgrow="ALWAYS">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem fx:id="closeButton" mnemonicParsing="false" text="Close" />
+                                <MenuItem fx:id="logoutButton" mnemonicParsing="false" text="Logout" />
+                                <MenuItem fx:id="connectDatabase" mnemonicParsing="false" text="Ping Connection" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </HBox>
+    </top>
+</BorderPane>
