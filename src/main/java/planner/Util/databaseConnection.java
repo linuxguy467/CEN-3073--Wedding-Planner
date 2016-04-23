@@ -12,8 +12,8 @@ import java.sql.*;
 public class databaseConnection
 {
     private static Connection connection;
-    public static Boolean taskState;
-    private static String query;
+    public static Boolean taskState = Boolean.FALSE;
+    private static int client_id;
 
 
     /**
@@ -81,9 +81,15 @@ public class databaseConnection
             statement.setString(9, contact_num);
             statement.setString(10, alt_contact_num);
             statement.setString(11, email);
-
-            query = "SELECT * FROM Client WHERE contact_num= " + "'" + contact_num + "'";
             statement.executeUpdate();
+
+            ResultSet query = statement.executeQuery("SELECT * FROM Client " +
+                    "WHERE contact_num= " + "'" + contact_num + "'");
+            if(query.next())
+            {
+                client_id = query.getInt("client_id");
+            }
+
 
             statement.close();
             taskState = Boolean.TRUE;
@@ -116,11 +122,49 @@ public class databaseConnection
     {
         PreparedStatement statement;
         try {
-            statement = connection.prepareStatement("INSERT INTO Ceremony(ceremony_name, fname, lname, " +
+            statement = connection.prepareStatement("INSERT INTO Ceremony(client_id, " +
+                    "ceremony_name, fname, lname, " +
                     "time_start, time_end, primary_address, secondary_address, " +
                     "contact_number, city, state, zip) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            statement.setInt(1, client_id);
             statement.setString(2, ceremony_name);
+            statement.setString(3, fname);
+            statement.setString(4, lname);
+            statement.setString(5, time_start);
+            statement.setString(6, time_end);
+            statement.setString(7, primary_address);
+            statement.setString(8, secondary_address);
+            statement.setString(9, contact_number);
+            statement.setString(10, city);
+            statement.setString(11, state);
+            statement.setInt(12, zip);
+
+            statement.executeUpdate();
+
+            statement.close();
+            taskState = Boolean.TRUE;
+        } catch (SQLException e) {
+            taskState = Boolean.FALSE;
+           /* System.out.println(e.getSQLState() + "\t"
+                    + e.getMessage() + "\t" + e.getErrorCode());*/
+            //System.exit(-1);
+        }
+    }
+
+    public static void addToDB(String reception_name, String fname, String lname,
+                                     String time_start, String time_end, String primary_address,
+                                     String secondary_address, String contact_number, String city, String state,
+                                     int zip)
+    {
+        PreparedStatement statement;
+        try {
+            statement = connection.prepareStatement("INSERT INTO Reception(client_id, reception_name, fname, lname," +
+                    "time_start, time_end, primary_address," +
+                    "secondary_address, contact_number, city, state, zip) VALUES ()");
+            statement.setInt(1, client_id);
+            statement.setString(2, reception_name);
             statement.setString(3, fname);
             statement.setString(4, lname);
             statement.setString(5, time_start);
@@ -144,38 +188,6 @@ public class databaseConnection
         }
     }
 
-    public static void addToDB(String reception_name, String fname, String lname,
-                                     String time_start, String time_end, String primary_address,
-                                     String secondary_address, String contact_number, String city, String state,
-                                     int zip)
-    {
-        PreparedStatement statement;
-        try {
-            statement = connection.prepareStatement("");
-            statement.setString(1, reception_name);
-            statement.setString(2, fname);
-            statement.setString(3, lname);
-            statement.setString(4, time_start);
-            statement.setString(5, time_end);
-            statement.setString(6, primary_address);
-            statement.setString(7, secondary_address);
-            statement.setString(8, contact_number);
-            statement.setString(9, city);
-            statement.setString(10, state);
-            statement.setInt(11, zip);
-
-            statement.executeUpdate();
-
-            statement.close();
-            taskState = Boolean.TRUE;
-        } catch (SQLException e) {
-            taskState = Boolean.FALSE;
-            System.out.println(e.getSQLState() + "\t"
-                    + e.getMessage() + "\t" + e.getErrorCode());
-            //System.exit(-1);
-        }
-    }
-
     public static void addToDatabase(String wedding_flower, String fcolor, String scolor, String acolor,
                                      String bfflower, String gfflower, String wedding_style, int num_maid_matrons,
                                      int num_bestmen, int num_bridesmaids, int num_groomsmen, int num_guests,
@@ -183,24 +195,26 @@ public class databaseConnection
     {
         PreparedStatement statement;
         try {
-            statement = connection.prepareStatement("INSERT INTO Wedding_Info(fcolor, scolor, acolor, bfflower, " +
+            statement = connection.prepareStatement("INSERT INTO Wedding_Info(client_id, " +
+                    "fcolor, scolor, acolor, bfflower, " +
                     "gfflower, wedding_flower, wedding_style, num_maid_matrons,num_bestmen, num_bridesmaids, " +
                     "num_groomsmen, num_guests, table_size, num_guests_per_table) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
-            statement.setString(1, fcolor);
-            statement.setString(2, scolor);
-            statement.setString(3, acolor);
-            statement.setString(4, bfflower);
-            statement.setString(5, gfflower);
-            statement.setString(6, wedding_flower);
-            statement.setString(7, wedding_style);
-            statement.setInt(8, num_maid_matrons);
-            statement.setInt(9, num_bestmen);
-            statement.setInt(10, num_bridesmaids);
-            statement.setInt(11, num_groomsmen);
-            statement.setInt(12, num_guests);
-            statement.setInt(13, table_size);
-            statement.setInt(14, num_guests_per_table);
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            statement.setInt(1, client_id);
+            statement.setString(2, fcolor);
+            statement.setString(3, scolor);
+            statement.setString(4, acolor);
+            statement.setString(5, bfflower);
+            statement.setString(6, gfflower);
+            statement.setString(7, wedding_flower);
+            statement.setString(8, wedding_style);
+            statement.setInt(9, num_maid_matrons);
+            statement.setInt(10, num_bestmen);
+            statement.setInt(11, num_bridesmaids);
+            statement.setInt(12, num_groomsmen);
+            statement.setInt(13, num_guests);
+            statement.setInt(14, table_size);
+            statement.setInt(15, num_guests_per_table);
 
             statement.executeUpdate();
 
@@ -219,11 +233,12 @@ public class databaseConnection
         PreparedStatement statement;
         try {
             statement = connection.prepareStatement("INSERT INTO Guest_List" +
-                    "(guest_title, guest_fname, guest_lname) " +
+                    "(client_id, guest_title, guest_fname, guest_lname) " +
                     "VALUES (?, ?, ?)");
-            statement.setString(1, guest_first);
-            statement.setString(2, guest_last);
-            statement.setString(3, guest_title);
+            statement.setInt(1, client_id);
+            statement.setString(2, guest_first);
+            statement.setString(3, guest_last);
+            statement.setString(4, guest_title);
 
             statement.executeUpdate();
 

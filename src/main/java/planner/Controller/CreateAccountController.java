@@ -1,18 +1,17 @@
 package planner.Controller;
 
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import planner.GUI.Main;
 import planner.Util.databaseConnection;
@@ -22,10 +21,11 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
+
 
 public class CreateAccountController{
 
+	@FXML private TextField Cname;
 	@FXML private Label addtional;
 	@FXML private MenuItem Back;
 	@FXML private Button addItem;
@@ -124,8 +124,8 @@ public class CreateAccountController{
 	@FXML private ColorPicker AccentColor;
 	@FXML private ChoiceBox<String> weddingPackages;
 	@FXML private ChoiceBox<?> title;
-	
-	
+
+	/*Task<Boolean> booleanTask;*/
 	//create table data
 	@FXML
 	 final ObservableList<Party> data = FXCollections.observableArrayList(
@@ -143,12 +143,13 @@ public class CreateAccountController{
 	
 	@FXML
 	private void initialize() {
+		MainController.welcomeThread.restart();
 
 		Back.setOnAction(event -> {
 			try {
 				Main main = new Main();
 				main.closeStage();
-				main.setFXML("planner/GUI/Menu.fxml");
+				main.setFXML("resources/GUI/Menu.fxml");
 				main.start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -163,32 +164,83 @@ public class CreateAccountController{
 				Date date = Date.from(instant);
 				java.sql.Date wedd_date = new java.sql.Date(date.getTime());
 
-				Task<Boolean> booleanTask = new Task<Boolean>() {
-					@Override
-					protected Boolean call() throws Exception {
-						databaseConnection.addToDatabase(Gfirst.getText(), Gmiddle.getText(), Glast.getText(),
-								Bfirst.getText(), Bmiddle.getText(), Blast.getText(), wedd_date, Cnumber.getText(),
-								CAnumber.getText(), Email.getText());
-						return databaseConnection.taskState;
-					}
-				};
+				if(color1.getValue() != null)
+				{
+					Color color = color1.getValue();
+					String first_color = color.toString();
+				}
 
-				booleanTask.setOnSucceeded(event1 -> {
+				if(color2.getValue() != null)
+				{
+					Color color3 = color2.getValue();
+					String second_color = color3.toString();
+				}
+
+				if(AccentColor.getValue() != null)
+				{
+					Color acc_color = AccentColor.getValue();
+					String acolor = acc_color.toString();
+				}
+
+
+
+				if(!Gfirst.getText().isEmpty() && !Gmiddle.getText().isEmpty()&&
+						!Glast.getText().isEmpty() && !Bfirst.getText().isEmpty()&&
+						!Bmiddle.getText().isEmpty() && !Blast.getText().isEmpty()&&
+						!Cname.getText().isEmpty() &&
+						!Cfirst.getText().isEmpty() && !Clast.getText().isEmpty() &&
+						!Cstart.getText().isEmpty() && !Cend.getText().isEmpty() &&
+						!Caddress1.getText().isEmpty() && !Ccity.getText().isEmpty() &&
+						!Cstate.getText().isEmpty() && !CCnumber.getText().isEmpty() &&
+						Czip.getText().matches("\\d\\d\\d\\d\\d") &&
+						Email.getText().matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$") &&
+						Cnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$") &&
+						CAnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$") &&
+						CCnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")){
+
+					databaseConnection.addToDatabase(Gfirst.getText(), Gmiddle.getText(), Glast.getText(),
+							Bfirst.getText(), Bmiddle.getText(), Blast.getText(), wedd_date, Cnumber.getText(),
+							CAnumber.getText(), Email.getText());
+					databaseConnection.addToDatabase(Cname.getText(), Cfirst.getText(),
+							Clast.getText(), Cstart.getText(), Cend.getText(), Caddress1.getText(),
+							Caddress2.getText(), CCnumber.getText(), Ccity.getText(), Cstate.getText(),
+							Integer.parseInt(Czip.getText()));
+					Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+					successAlert.setTitle("Success!");
+					successAlert.setHeaderText("Added!");
+					successAlert.setContentText("Successfully Added to Database!");
+					successAlert.show();
+
+					/*booleanTask = new Task<Boolean>() {
+						@Override
+						protected Boolean call() throws Exception {
+
+
+
+
+							return databaseConnection.taskState;
+						}
+					};
+
+					new Thread(booleanTask).start();*/
+				}else
+				{
+					Alert successAlert = new Alert(Alert.AlertType.ERROR);
+					successAlert.setTitle("Error!");
+					successAlert.setHeaderText("Missing Data!");
+					successAlert.setContentText("Could not send data, " +
+							"data could be missing or invalid!");
+					successAlert.show();
+				}
+
+
+				/*booleanTask.setOnSucceeded(event1 -> {
 					if(booleanTask.getValue())
 					{
-						Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-						successAlert.setTitle("Success!");
-						successAlert.setHeaderText("Added!");
-						successAlert.setContentText("Successfully Added to Database!");
-						successAlert.show();
+
 					}else
 					{
-						Alert successAlert = new Alert(Alert.AlertType.ERROR);
-						successAlert.setTitle("Error!");
-						successAlert.setHeaderText("Missing Data!");
-						successAlert.setContentText("Could not send data, " +
-								"data could be missing or invalid!");
-						successAlert.show();
+
 					}
 
 				});
@@ -200,9 +252,9 @@ public class CreateAccountController{
 					successAlert.setContentText("Connection Failed " +
 							"or could not be established!");
 					successAlert.show();
-				});
+				});*/
 
-				new Thread(booleanTask).start();
+
 			}else
 			{
 				Alert successAlert = new Alert(Alert.AlertType.ERROR);

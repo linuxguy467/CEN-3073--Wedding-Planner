@@ -10,6 +10,7 @@
 
 <AnchorPane prefWidth="600.0" styleClass="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.logInScene">
 
+
     <stylesheets>
         <URL value="@Login.css" />
     </stylesheets>

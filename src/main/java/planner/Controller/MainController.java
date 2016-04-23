@@ -30,12 +30,16 @@ public class MainController  {
 	@FXML private MenuItem logoutButton;
 	@FXML private Text welcomeText;
 
+	public static final Connection[] conn = new Connection[1];
+	static Service<Connection> welcomeThread;
+
 	@FXML private void initialize()
 	{
 		/** Establish connection with MySQL database
 	      *  to check for username and password */
-		final Connection[] conn = new Connection[1];
-		Service<Connection> welcomeThread = new Service<Connection>() {
+
+		;
+		welcomeThread = new Service<Connection>() {
 			@Override
 			protected Task<Connection> createTask() {
 				return new Task<Connection>() {

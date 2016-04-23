@@ -27,9 +27,9 @@ public class logInScene
     @FXML private Label wrongLogInText;
     @FXML private TextField userNameTextField;
     @FXML private Button logInButton;
-    @FXML private MenuItem createUserButton;
 
-    public static String first_name, last_name;
+    static String first_name, last_name;
+    static final Connection[] conn = new Connection[1];
     /**
      * FXML accessed method.
      * Handles events from objects.
@@ -39,7 +39,7 @@ public class logInScene
 
         /** Establish connection with MySQL database
          *  to check for username and password */
-        final Connection[] conn = new Connection[1];
+
         final Service<Connection> connectionThread = new Service<Connection>() {
             @Override
             protected Task<Connection> createTask() {

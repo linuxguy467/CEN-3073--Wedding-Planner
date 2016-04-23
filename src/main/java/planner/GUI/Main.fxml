@@ -4,7 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.net.URL?>
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.CreateAccountController">
+
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
     <center>
         <TabPane prefHeight="700.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -35,7 +40,7 @@
                                 <Label layoutX="26.0" layoutY="155.0" text="Wedding Date:" />
                                 <DatePicker fx:id="weddingDate" layoutX="27.0" layoutY="172.0" />
                                 <Label layoutX="26.0" layoutY="201.0" text=" Ceremony Name:" />
-                                <TextField layoutX="29.0" layoutY="218.0" />
+                                <TextField fx:id="Cname" layoutX="29.0" layoutY="218.0" />
                                 <Label layoutX="193.0" layoutY="201.0" text="Contact Name:" />
                                 <TextField fx:id="Cfirst" layoutX="185.0" layoutY="218.0" prefHeight="25.0" prefWidth="124.0" />
                                 <TextField fx:id="Clast" layoutX="314.0" layoutY="218.0" prefHeight="25.0" prefWidth="124.0" />
@@ -59,9 +64,9 @@
                                 <Label layoutX="270.0" layoutY="319.0" text="Contact Number:" />
                                 <TextField fx:id="CCnumber" layoutX="267.0" layoutY="338.0" promptText="(000) 000-0000" />
                                 <Label layoutX="219.0" layoutY="176.0" text="Reception Same Location?" />
-                                <CheckBox layoutX="364.0" layoutY="176.0" mnemonicParsing="false" text="Yes" />
+                                <CheckBox fx:id="yes" layoutX="364.0" layoutY="176.0" mnemonicParsing="false" text="Yes" />
                                 <Label layoutX="32.0" layoutY="377.0" text=" Reception Name:" />
-                                <TextField layoutX="32.0" layoutY="394.0" />
+                                <TextField fx:id="Reception" layoutX="32.0" layoutY="394.0" />
                                 <Label layoutX="189.0" layoutY="377.0" text="Contact Name:" />
                                 <TextField fx:id="Rfirst" layoutX="186.0" layoutY="394.0" prefHeight="25.0" prefWidth="124.0" />
                                 <Label layoutX="189.0" layoutY="419.0" text="First:" />

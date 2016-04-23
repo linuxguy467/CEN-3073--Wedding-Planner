@@ -7,7 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.Controller.QuoteController">
+   <stylesheets>
+      <URL value="@Login.css" />
+   </stylesheets>
    <center>
       <AnchorPane prefHeight="700.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
