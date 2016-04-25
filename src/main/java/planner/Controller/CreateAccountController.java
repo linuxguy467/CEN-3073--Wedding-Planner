@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import planner.GUI.Main;
 import planner.Util.databaseConnection;
 
+import javax.management.relation.RelationNotFoundException;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -125,7 +126,6 @@ public class CreateAccountController{
 	@FXML private ChoiceBox<String> weddingPackages;
 	@FXML private ChoiceBox<?> title;
 
-	/*Task<Boolean> booleanTask;*/
 	//create table data
 	@FXML
 	 final ObservableList<Party> data = FXCollections.observableArrayList(
@@ -149,7 +149,7 @@ public class CreateAccountController{
 			try {
 				Main main = new Main();
 				main.closeStage();
-				main.setFXML("resources/GUI/Menu.fxml");
+				main.setFXML("planner/GUI/Menu.fxml");
 				main.start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -164,25 +164,50 @@ public class CreateAccountController{
 				Date date = Date.from(instant);
 				java.sql.Date wedd_date = new java.sql.Date(date.getTime());
 
+				String first_color = " ", second_color = " ", acolor = " ", wedding_style = " ";
 				if(color1.getValue() != null)
 				{
 					Color color = color1.getValue();
-					String first_color = color.toString();
+					first_color = color.toString();
 				}
 
 				if(color2.getValue() != null)
 				{
 					Color color3 = color2.getValue();
-					String second_color = color3.toString();
+					second_color = color3.toString();
 				}
 
 				if(AccentColor.getValue() != null)
 				{
 					Color acc_color = AccentColor.getValue();
-					String acolor = acc_color.toString();
+					acolor = acc_color.toString();
 				}
 
-
+				if(Romantic.isSelected())
+				{
+					wedding_style = "Romantic";
+				}else if(Soft.isSelected())
+				{
+					wedding_style = "Soft";
+				}else if(Simple.isSelected())
+				{
+					wedding_style = "Simple";
+				}else if(Casual.isSelected())
+				{
+					wedding_style = "Casual";
+				}else if(Formal.isSelected())
+				{
+					wedding_style = "Formal";
+				}else if(Extravagant.isSelected())
+				{
+					wedding_style = "Extravagant";
+				}else if(Traditional.isSelected())
+				{
+					wedding_style = "Traditional";
+				}else
+				{
+					wedding_style = " ";
+				}
 
 				if(!Gfirst.getText().isEmpty() && !Gmiddle.getText().isEmpty()&&
 						!Glast.getText().isEmpty() && !Bfirst.getText().isEmpty()&&
@@ -192,10 +217,18 @@ public class CreateAccountController{
 						!Cstart.getText().isEmpty() && !Cend.getText().isEmpty() &&
 						!Caddress1.getText().isEmpty() && !Ccity.getText().isEmpty() &&
 						!Cstate.getText().isEmpty() && !CCnumber.getText().isEmpty() &&
-						Czip.getText().matches("\\d\\d\\d\\d\\d") &&
+						!Reception.getText().isEmpty() && !Rfirst.getText().isEmpty() &&
+						!Rlast.getText().isEmpty() && !Rstart.getText().isEmpty() &&
+						!Rend.getText().isEmpty() && !Raddress1.getText().isEmpty() &&
+						!Rcity.getText().isEmpty() && !Rstate.getText().isEmpty() &&
+						RCnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$") &&
+						Czip.getText().matches("\\d\\d\\d\\d\\d") && NumberGrooms.getText().matches("\\d") &&
+						NumberHonor.getText().matches("\\d") && NumberBestmen.getText().matches("\\d") &&
+						NumberGrooms.getText().matches("\\d") && NumberGtable.getText().matches("\\d") &&
+						NumberGuest.getText().matches("\\d") && NumberMaids.getText().matches("\\d") &&
+						Tsize.getText().matches("\\d") && Rzip.getText().matches("\\d\\d\\d\\d\\d") &&
 						Email.getText().matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$") &&
 						Cnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$") &&
-						CAnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$") &&
 						CCnumber.getText().matches("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")){
 
 					databaseConnection.addToDatabase(Gfirst.getText(), Gmiddle.getText(), Glast.getText(),
@@ -205,6 +238,19 @@ public class CreateAccountController{
 							Clast.getText(), Cstart.getText(), Cend.getText(), Caddress1.getText(),
 							Caddress2.getText(), CCnumber.getText(), Ccity.getText(), Cstate.getText(),
 							Integer.parseInt(Czip.getText()));
+					databaseConnection.addToDB(Reception.getText(), Rfirst.getText(),
+							Rlast.getText(), Rstart.getText(), Rend.getText(),
+							Raddress1.getText(), Raddress2.getText(), RCnumber.getText(),
+							Rcity.getText(), Rstate.getText(), Integer.parseInt(Rzip.getText()));
+					databaseConnection.addToDatabase(Wflower.getText(), first_color,
+							second_color, acolor, BFflower.getText(), GFflower.getText(),
+							wedding_style, Integer.parseInt(NumberHonor.getText()),
+							Integer.parseInt(NumberBestmen.getText()),
+							Integer.parseInt(NumberMaids.getText()),
+							Integer.parseInt(NumberGrooms.getText()),
+							Integer.parseInt(NumberGuest.getText()), Integer.parseInt(Tsize.getText()),
+							Integer.parseInt(NumberGtable.getText()));
+
 					Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
 					successAlert.setTitle("Success!");
 					successAlert.setHeaderText("Added!");
@@ -331,8 +377,17 @@ public class CreateAccountController{
 		if (yes.isSelected())
 		{
 			// gets ceremony text fields text and set them to reception text fields
-			String make = Ceremony.getText();
-			Reception.setPromptText(make);
+			Reception.setText(Cname.getText());
+			Rfirst.setText(Cfirst.getText());
+			Rlast.setText(Clast.getText());
+			Rstart.setText(Cstart.getText());
+			Rend.setText(Cend.getText());
+			Raddress1.setText(Caddress1.getText());
+			Raddress2.setText(Caddress2.getText());
+			Rcity.setText(Ccity.getText());
+			Rstate.setText(Cstate.getText());
+			Rzip.setText(Czip.getText());
+			RCnumber.setText(CCnumber.getText());
 		}
 	}
 	
