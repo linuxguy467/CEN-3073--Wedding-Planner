@@ -250,7 +250,11 @@ public class CreateAccountController{
 							Integer.parseInt(NumberGrooms.getText()),
 							Integer.parseInt(NumberGuest.getText()), Integer.parseInt(Tsize.getText()),
 							Integer.parseInt(NumberGtable.getText()));
-
+					for(Party party : data)
+					{
+						databaseConnection.addToDatabase(party.getTitle(),
+								party.getFirstname(), party.getLastname());
+					}
 					Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
 					successAlert.setTitle("Success!");
 					successAlert.setHeaderText("Added!");
